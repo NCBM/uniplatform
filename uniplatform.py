@@ -4,7 +4,15 @@ import platform as pf
 OSPlatform = namedtuple("OSPlatform", ("os", "arch", "bits"))
 
 
-def oskind(osname: str):
+def oskind(osname):
+    """
+    Parse system architecture kind.
+
+    Args:
+    - osname: `str` - architecture name
+
+    Returns: `str` - parsed architecture name
+    """
     if osname.startswith("arm") or osname.startswith("aarch"):
         # armv7(32), armv8(64), aarch64, arm64, ...
         return "arm"
@@ -22,7 +30,15 @@ def oskind(osname: str):
     return osname
 
 
-def osbits(osname: str):
+def osbits(osname):
+    """
+    Parse system architecture bits.
+
+    Args:
+    - osname: `str` - architecture name
+
+    Returns: `int` - parsed architecture bits
+    """
     if "64" in osname:
         return 64
     elif osname.startswith("armv8"):
@@ -32,5 +48,10 @@ def osbits(osname: str):
 
 
 def osplatform():
+    """
+    Get system platform info.
+
+    Returns: `OSPlatform` - parsed platform info
+    """
     system, machine = pf.system(), pf.machine()
     return OSPlatform(system, oskind(machine), osbits(machine))
