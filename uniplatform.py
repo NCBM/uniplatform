@@ -16,8 +16,8 @@ def oskind(osname):
     if osname.startswith("arm") or osname.startswith("aarch"):
         # armv7(32), armv8(64), aarch64, arm64, ...
         return "arm"
-    elif "86" in osname:
-        # x86, i386, i686, x86_64
+    elif "86" in osname or osname == "amd64":
+        # x86, i386, i686, x86_64, amd64
         return "x86"
     elif osname.startswith("ppc"):
         return "powerpc"
