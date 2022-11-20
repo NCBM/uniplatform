@@ -10,6 +10,7 @@ setup(
     author_email='worldmozara@gmail.com',
     url='https://github.com/NCBM/uniplatform',
     scripts=['uniplatform.py'],
+    py_modules=["uniplatform"],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
