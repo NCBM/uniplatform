@@ -23,10 +23,12 @@ def oskind(osname):
         return "powerpc"
     elif osname.startswith("mips"):
         return "mips"
-    elif "risc" in osname:
-        return "risc"
+    elif "riscv" in osname:
+        return "riscv"
     elif osname.startswith("sparc"):
         return "sparc"
+    elif osname.startswith("loong"):
+        return "loongarch"
     return osname
 
 
@@ -42,6 +44,8 @@ def osbits(osname):
     if "64" in osname:
         return 64
     elif osname.startswith("armv8"):
+        return 64
+    elif osname == "s390x":
         return 64
     else:
         return 32
